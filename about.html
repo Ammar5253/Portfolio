@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+</head>
+<style>
+    
+    *body{
+        background-color:  hsl(0, 0%, 6%);
+    }
+    /* .section{
+        padding-block:8rem;
+    } */
+
+    .section__tittle{
+        font-size:3.75rem;  
+    }
+    .about {
+        background-color:  hsl(0, 0%, 10%);  
+        margin-bottom: 1rem;
+    }
+
+    .about__container{
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        align-items: center;
+         column-gap: 4rem;
+    }
+    .about__img{
+        border-radius: .5rem;
+    }
+    .about__description{
+        margin-bottom: 2rem;
+    }
+    .tabs__btns{
+        display: flex;
+        column-gap: 2.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .tabs__btn,
+    .tabs__description span:first-child {
+        font-weight: 500; 
+    }
+
+    .tabs__btn{
+        cursor: pointer;
+        color:  hsl(0, 0%, 100%); 
+        position: relative;
+        padding-bottom: 0.5rem;       
+    }
+
+    .tabs__btn::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30%;
+        height: 2px;
+        background-color:  hsl(0, 0%, 77%);  
+        transition: all 0.3s cubic-bezier(0.05,0.2,0.1,1);
+    }
+    .tabs__data{
+        row-gap: 1rem;
+    }
+    .tabs__description span:last-child{
+        display: block;
+    }
+    .tabs__btn .tabs__active{
+        color: hsl(350, 98%, 64%); 
+    }
+    .tabs__btn .tabs__active::after{
+        background-color:  hsl(350, 98%, 64%); 
+        width: 100%;
+    }
+
+    .tabs__item[data-content]{
+        display: none;
+    }
+
+    .tabs__active[data-content]{
+        display: block;
+    }
+</style>
+<script>
+    const tabs = document.querySelectorAll('[data-target]'), tabContents = document.querySelectorAll('[data-content]');
+
+    tabs.forEach((tab) => {
+        tab.addEventListener('click' ,() => {
+            const target = document.querySelector(tab.dataset.target);
+
+        tabContents.forEach((tabContent) => {
+            tabContent.classList.remove('tab__active');
+        });
+
+        target.classList.add('tab__active');
+
+        tabs.forEach((tab) => {
+            tab.classList.remove('tab__active');
+        });
+        
+        tab.classList.add('tab__active');
+        });
+    });
+
+</script>
+<body>
+    <section class="about section" id="about">
+        <div class="about__container container grid">
+            <img src="Image/images-removebg-preview.png" alt="Profile pic" class="about__img" />
+
+            <div class="about__content">
+                <h2 class="section__tittle">About Me</h2>
+                <p class="about__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat deserunt
+                    blanditiis nesciunt iure repudiandae esse consequatur quia labore exercitationem ipsum, magnam
+                    inventore libero voluptatum amet alias quae assumenda nostrum dolorem!</p>
+
+                <div class="tabs__btns">
+                    <span class="tabs__btn tab__active" data-target="#skills">Main Skills</span>
+                    <span class="tabs__btn" data-target="#award">Awards</span>
+                    <span class="tabs__btn" data-target="#experience">Experience</span>
+                    <span class="tabs__btn" data-target="#education">Education & Certifications</span>
+                </div>
+                <div class="tabs__content">
+                    <div class="tabs__item tab__active" data-content id="skills">
+                        <div class="tabs__data grid">
+                            <p class="tabs__description">
+                                <span>User experience Design</span> - UI/UX
+                                <span>Delight the user </span>
+                            </p>
+
+                            <p class="tabs__description">
+                                <span>User experience Design</span> - UI/UX
+                                <span>Delight the user </span>
+                            </p>
+
+                            <p class="tabs__description">
+                                <span>User experience Design</span> - UI/UX
+                                <span>Delight the user </span>
+                            </p>
+                        </div>
+
+                        <div class="tabs__item" data-content id="award">
+                            <div class="tabs__data grid">
+                                <p class="tabs__description">
+                                    <span>User experience Design</span> - UI/UX
+                                    <span>Delight the user </span>
+                                </p>
+
+                                <p class="tabs__description">
+                                    <span>User experience Design</span> - UI/UX
+                                    <span>Delight the user </span>
+                                </p>
+
+                                <p class="tabs__description">
+                                    <span>User experience Design</span> - UI/UX
+                                    <span>Delight the user </span>
+                                </p>
+                            </div>
+
+                            <div class="tabs__item" data-content id="experience">
+                                <div class="tabs__data grid">
+                                    <p class="tabs__description">
+                                        <span>User experience Design</span> - UI/UX
+                                        <span>Delight the user </span>
+                                    </p>
+
+                                    <p class="tabs__description">
+                                        <span>User experience Design</span> - UI/UX
+                                        <span>Delight the user </span>
+                                    </p>
+
+                                    <p class="tabs__description">
+                                        <span>User experience Design</span> - UI/UX
+                                        <span>Delight the user </span>
+                                    </p>
+                                </div>
+
+                                <div class="tabs__item" data-content id="education">
+                                    <div class="tabs__data grid">
+                                        <p class="tabs__description">
+                                            <span>User experience Design</span> - UI/UX
+                                            <span>Delight the user </span>
+                                        </p>
+
+                                        <p class="tabs__description">
+                                            <span>User experience Design</span> - UI/UX
+                                            <span>Delight the user </span>
+                                        </p>
+
+                                        <p class="tabs__description">
+                                            <span>User experience Design</span> - UI/UX
+                                            <span>Delight the user </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </section>
+</body>
+
+</html>
