@@ -71,6 +71,13 @@ header.sticky{
     height: 40px;
     padding-right: 8px;
     margin-right: 4px;
+    margin-bottom: -10px;
+}
+.logo a{
+    text-decoration: none;
+}
+.logo a:hover{
+    text-decoration: none;
 }
 span{
     color: var(--hover-color);
@@ -173,7 +180,7 @@ section{
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
-    width: 400px;
+    width: 325px;
     margin: 1rem 0 2rem;
 }
 .info-box h5{
@@ -536,45 +543,56 @@ section{
     color: var(--hover-color);
 }
 
- .portfolio-gallery{
+.portfolio-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill , minmax(270px ,1fr));
-    gap: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 0 2rem;
     margin-bottom: 50px;
 }
-.port-box{
+
+.port-box {
     position: relative;
     border-radius: 15px;
     overflow: hidden;
     background: #292e33;
     display: flex;
-    grid-template-rows: 1fr auto;
+    flex-direction: column;
     align-items: center;
+    height: 450px;
     border: 2px solid var(--hover-color);
     box-shadow: var(--neon-box-shadow);
-}
-.port-image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
+    transition: transform 0.3s ease;
 }
 
-.port-image img{
-    width: 100%;
-    opacity: .5s;
-    height: 100%;
-    transition: .5s;
+.port-box:hover {
+    transform: scale(1.03);
 }
-.port-content{
+
+.port-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.port-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.port-content {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-opacity: 0;
-    background: linear-gradient(rgba(0,0,0,.1),#95b5b7);
+    opacity: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), #95b5b7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -583,37 +601,27 @@ opacity: 0;
     transition: 0.5s;
     padding: 0 2rem;
 }
-.port-box:hover .port-content{
+
+.port-box:hover .port-content {
     opacity: 1;
 }
-.port-box:hover .port-image img{
+
+.port-box:hover .port-image img {
     transform: scale(1.1);
 }
-.port-content h3{
-    font-size: 1.5rem;
-    font-size: 600;
-    color:aqua;
+
+.port-content h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: aqua;
 }
-.port-content p{
-    font-size: .8rem;
-    margin: 5px 0 15px 0;
+
+.port-content p {
+    font-size: 1rem;
+    margin: 10px 0 15px 0;
     color: aquamarine;
 }
-.port-content a{
-    background: #fff;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border: 1px solid var(--hover-color);
-    outline: 2px solid #fff;
-}
-.port-content a i{
-    font-size: 1.3rem;
-    color: var(--secon-bg-color);
-} 
+
 .contant{
     background: var(--secon-bg-color);
     width: 100%;
@@ -735,9 +743,9 @@ footer a i{
     .skill-main{
         grid-template-columns: 1fr;
     }
-    /* .fillter-buttons{
+    .fillter-buttons{
         margin: 2.5rem 0;
-    } */
+    }
     footer p{
         font-size: .8rem;
     }
@@ -750,9 +758,9 @@ footer a i{
     footer p{
         font-size: .6rem;
     }
-    /* .fillter-buttons .btn{
+    .fillter-buttons .btn{
         font-size: .8rem;
-    } */
+    }
     .img-about img{
         width: 300px;
     }
@@ -771,19 +779,20 @@ footer a i{
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(199, 192, 192, 0.7);
     overflow: auto;
     transition: opacity 0.3s ease;
   }
 
   /* Modal content */
   .modal-content {
-    background-color: white;
+    background: var(--bg-color);
     margin: 10% auto;
     padding: 20px;
     width: 90%;
     max-width: 400px;
     border-radius: 10px;
+    position: relative;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     text-align: center;
     animation: modal-zoom 0.3s ease-in-out;
@@ -791,9 +800,10 @@ footer a i{
 
   /* Close button */
   .close {
+    position: absolute;
     font-size: 30px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
     position: absolute;
     top: 10px;
     right: 20px;
@@ -802,13 +812,13 @@ footer a i{
 
   .close:hover,
   .close:focus {
-    color: #ff5c5c;
+    color: var(--hover-color);
   }
 
   /* Modal title */
   .modal-content h3 {
     margin-top: 0;
-    color: #333;
+    color:var(--hover-color);
     font-family: 'Arial', sans-serif;
   }
 
@@ -875,11 +885,11 @@ footer a i{
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background-color: rgba(199, 192, 192, 0.7);
   }
   
   .custom-modal-box {
-    background: #ab9191;
+    background: var(--bg-color);
     max-width: 600px;
     margin: 10% auto;
     padding: 30px;
@@ -887,6 +897,9 @@ footer a i{
     position: relative;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease;
+  }
+  .custom-modal-box h2{
+color: var(--hover-color);
   }
   
   @keyframes fadeIn {
@@ -899,12 +912,12 @@ footer a i{
     top: 12px;
     right: 18px;
     font-size: 26px;
-    color: #555;
+    color: var(--text-color);
     cursor: pointer;
   }
   
   .custom-close-btn:hover {
-    color: #000;
+    color: var(--hover-color);
   }
   
   .custom-modal-box ul {

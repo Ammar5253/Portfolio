@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <div class="logo"><span>  <img src="Image/ass.jpg" class="website-logo">A</span>mmar.
+        <div class="logo"><a href="#home"><img src="Image/ass.jpg" class="website-logo"><span>Ammar</span></a>
           
         
         </div>
@@ -22,7 +22,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#portfolio">Project</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
         <div id="menu-icon" class="bx bx-menu"></div>
     </header>
@@ -284,7 +284,7 @@
 
                 <div class="home-image">
                     <div class="img-box">
-                        <img src="Image/WhatsApp_Image_2025-01-28_at_11.46.34_9c34300a-removebg-preview.png"
+                        <img src="Image/img3-removebg-preview.png"
                             alt="Profile Pic">
                     </div>
                 </div>
@@ -296,7 +296,6 @@
         <div class="main-text">
             <h2>Latest Projects</h2>
         </div>
-    </section>
 
     <div class="container">
 
@@ -344,23 +343,25 @@
             </div>
         </div>
     </div>
+</section>
 
     <section id="contact" class="contant">
         <div class="main-text">
-            <span>Ask me question</span>
-            <h2>Contact Me</h2>
+          <span>Ask me question</span>
+          <h2>Contact Me</h2>
         </div>
-        <form action="#">
-            <input type="text" placeholder="Your Name">
-            <input type="text" placeholder="Your Email">
-            <input type="text" placeholder="Your Address">
-            <input type="text" placeholder="Phone Number">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <div class="btn-box formBtn">
-                <button type="submit" class="btn">Send Message</button>
-            </div>
+        <form action="https://formsubmit.co/ammar.sak52@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <input type="text" name="address" placeholder="Your Address" />
+          <input type="text" name="phone" placeholder="Phone Number" />
+          <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+          <div class="btn-box formBtn">
+            <button type="submit" class="btn">Send Message</button>
+          </div>
         </form>
-    </section>
+      </section>
 
     <footer>
         <p>Copyright &copy; 2024 by AmmarTech || All Right Reserved.</p>

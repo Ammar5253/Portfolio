@@ -1,206 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-</head>
-<style>
-    
-    *body{
-        background-color:  hsl(0, 0%, 6%);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    /* .section{
-        padding-block:8rem;
-    } */
-
-    .section__tittle{
-        font-size:3.75rem;  
+  
+    body {
+      background-color: hsl(0, 0%, 6%);
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 1rem;
     }
+  
+    .section__tittle {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+  
     .about {
-        background-color:  hsl(0, 0%, 10%);  
-        margin-bottom: 1rem;
+      background-color: hsl(0, 0%, 10%);
+      border-radius: 8px;
+      padding: 2rem;
     }
-
-    .about__container{
-        display: grid;
-        grid-template-columns: 5fr 7fr;
-        align-items: center;
-         column-gap: 4rem;
+  
+    .about__container {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
     }
-    .about__img{
-        border-radius: .5rem;
+  
+    .about__img {
+      flex: 1 1 300px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      object-fit: cover;
     }
-    .about__description{
-        margin-bottom: 2rem;
+  
+    .about__content {
+      flex: 2 1 400px;
+      width: 100%;
     }
-    .tabs__btns{
-        display: flex;
-        column-gap: 2.5rem;
-        margin-bottom: 1.25rem;
+  
+    .about__description {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
     }
-
-    .tabs__btn,
+  
+    .tabs__btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .tabs__btn {
+      cursor: pointer;
+      color: hsl(0, 0%, 100%);
+      position: relative;
+      padding-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+  
+    .tabs__btn::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 30%;
+      height: 2px;
+      background-color: hsl(0, 0%, 77%);
+      transition: all 0.3s ease;
+    }
+  
+    .tabs__btn.tabs__active {
+      color: hsl(350, 98%, 64%);
+    }
+  
+    .tabs__btn.tabs__active::after {
+      background-color: hsl(350, 98%, 64%);
+      width: 100%;
+    }
+  
+    .tabs__item[data-content] {
+      display: none;
+    }
+  
+    .tabs__item.tabs__active {
+      display: block;
+    }
+  
+    .tabs__data {
+      display: grid;
+      gap: 1rem;
+    }
+  
     .tabs__description span:first-child {
-        font-weight: 500; 
+      font-weight: bold;
     }
-
-    .tabs__btn{
-        cursor: pointer;
-        color:  hsl(0, 0%, 100%); 
-        position: relative;
-        padding-bottom: 0.5rem;       
+  
+    .tabs__description span:last-child {
+      display: block;
+      color: hsl(0, 0%, 80%);
     }
-
-    .tabs__btn::after{
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 30%;
-        height: 2px;
-        background-color:  hsl(0, 0%, 77%);  
-        transition: all 0.3s cubic-bezier(0.05,0.2,0.1,1);
+  
+    /* 🔽 Responsive Styles 🔽 */
+    @media screen and (max-width: 1024px) {
+      .section__tittle {
+        font-size: 2rem;
+      }
+  
+      .about__container {
+        flex-direction: column;
+        text-align: center;
+      }
+  
+      .tabs__btns {
+        justify-content: center;
+      }
+  
+      .tabs__btn {
+        font-size: 0.95rem;
+      }
     }
-    .tabs__data{
-        row-gap: 1rem;
+  
+    @media screen and (max-width: 600px) {
+      .about {
+        padding: 1.5rem 1rem;
+      }
+  
+      .section__tittle {
+        font-size: 1.8rem;
+      }
+  
+      .tabs__btn {
+        font-size: 0.85rem;
+      }
+  
+      .tabs__description span:last-child {
+        font-size: 0.9rem;
+      }
     }
-    .tabs__description span:last-child{
-        display: block;
-    }
-    .tabs__btn .tabs__active{
-        color: hsl(350, 98%, 64%); 
-    }
-    .tabs__btn .tabs__active::after{
-        background-color:  hsl(350, 98%, 64%); 
-        width: 100%;
-    }
-
-    .tabs__item[data-content]{
-        display: none;
-    }
-
-    .tabs__active[data-content]{
-        display: block;
-    }
-</style>
-<script>
-    const tabs = document.querySelectorAll('[data-target]'), tabContents = document.querySelectorAll('[data-content]');
-
-    tabs.forEach((tab) => {
-        tab.addEventListener('click' ,() => {
-            const target = document.querySelector(tab.dataset.target);
-
-        tabContents.forEach((tabContent) => {
-            tabContent.classList.remove('tab__active');
-        });
-
-        target.classList.add('tab__active');
-
-        tabs.forEach((tab) => {
-            tab.classList.remove('tab__active');
-        });
-        
-        tab.classList.add('tab__active');
-        });
-    });
-
-</script>
+  </style>
+  
+</head>
 <body>
-    <section class="about section" id="about">
-        <div class="about__container container grid">
-            <img src="Image/images-removebg-preview.png" alt="Profile pic" class="about__img" />
+  <section class="about section" id="about">
+    <div class="about__container container grid">
+        <img src="Image/WhatsApp_Image_2025-01-28_at_11.46.35_451f6f09-removebg-preview.png" alt="About pic">
 
-            <div class="about__content">
-                <h2 class="section__tittle">About Me</h2>
-                <p class="about__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat deserunt
-                    blanditiis nesciunt iure repudiandae esse consequatur quia labore exercitationem ipsum, magnam
-                    inventore libero voluptatum amet alias quae assumenda nostrum dolorem!</p>
+      <div class="about__content">
+        <h2 class="section__tittle">About Me</h2>
+        <p class="about__description">
+            I am a passionate software developer with a strong foundation in web technologies and a keen interest in building scalable, efficient, and user-friendly applications. My expertise lies in front-end development using tools like React, HTML, CSS, and JavaScript, with growing experience in backend integration and API handling. I enjoy solving real-world problems through clean code, intuitive design, and continuous learning. Whether working independently or as part of a collaborative team, I strive to deliver high-quality solutions that meet both user needs and business goals.
+        </p>
 
-                <div class="tabs__btns">
-                    <span class="tabs__btn tab__active" data-target="#skills">Main Skills</span>
-                    <span class="tabs__btn" data-target="#award">Awards</span>
-                    <span class="tabs__btn" data-target="#experience">Experience</span>
-                    <span class="tabs__btn" data-target="#education">Education & Certifications</span>
+        <div class="tabs__btns">
+          <span class="tabs__btn tabs__active" data-target="#skills">Main Skills</span>
+          <span class="tabs__btn" data-target="#education">Education</span>
+          <span class="tabs__btn" data-target="#experience">Experience</span>
+          <span class="tabs__btn" data-target="#award">Certifications</span>
+        </div>
+
+        <div class="tabs__content">
+          <div class="tabs__item tabs__active" data-content id="skills">
+            <div class="tabs__data grid">
+            
+              <p class="tabs__description">
+                <span>Web Development</span> - Frontend
+                <span>React, HTML, CSS</span>
+              </p>
+              <p class="tabs__description">
+                <span>Problem Solving</span> - DSA
+                <span>Logic & Algorithms</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="tabs__item" data-content id="education">
+            <div class="tabs__data grid">
+              <p class="tabs__description">
+                <span>Bachelor of Technology</span> - Computer Science
+                <span>2020 - 2023</span>
+              </p>
+              <p class="tabs__description">
+                <span>Diploma</span> - Computer Technology
+                <span>2017 - 2020</span>
+              </p>
+              <p class="tabs__description">
+                <span>SSC</span> - ICSE Board
+                <span>2017</span>
+              </p>
+            </div>
+          </div>
+
+          
+          <div class="tabs__item" data-content id="experience">
+              <div class="tabs__data grid">
+                  <p class="tabs__description">
+                      <span>Software Developer</span> - Hatim Technologies
+                      <span>Jan 2024 - Present</span>
+                    </p>
+                    <p class="tabs__description">
+                        <span>Salesforce Trainee Developer</span> - Dohrinii Technologies
+                        <span>Feb 2023 - Dec 2023</span>
+                    </p>
                 </div>
-                <div class="tabs__content">
-                    <div class="tabs__item tab__active" data-content id="skills">
-                        <div class="tabs__data grid">
-                            <p class="tabs__description">
-                                <span>User experience Design</span> - UI/UX
-                                <span>Delight the user </span>
-                            </p>
+            </div>
 
-                            <p class="tabs__description">
-                                <span>User experience Design</span> - UI/UX
-                                <span>Delight the user </span>
-                            </p>
+            <div class="tabs__item" data-content id="award">
+              <div class="tabs__data grid">
+                <p class="tabs__description">
+                  <span>.Net Full Stack Development</span> - MyTech Focus 
+                  <span>2024</span>
+                </p>
+                <p class="tabs__description">
+                  <span>MERN Stack Development</span> - Udemy
+                  <span>2023</span>
+                </p>
+              </div>
+            </div>
 
-                            <p class="tabs__description">
-                                <span>User experience Design</span> - UI/UX
-                                <span>Delight the user </span>
-                            </p>
-                        </div>
+        </div>
 
-                        <div class="tabs__item" data-content id="award">
-                            <div class="tabs__data grid">
-                                <p class="tabs__description">
-                                    <span>User experience Design</span> - UI/UX
-                                    <span>Delight the user </span>
-                                </p>
+      </div>
+    </div>
+  </section>
 
-                                <p class="tabs__description">
-                                    <span>User experience Design</span> - UI/UX
-                                    <span>Delight the user </span>
-                                </p>
+  <script>
+    const tabs = document.querySelectorAll('[data-target]');
+    const tabContents = document.querySelectorAll('[data-content]');
 
-                                <p class="tabs__description">
-                                    <span>User experience Design</span> - UI/UX
-                                    <span>Delight the user </span>
-                                </p>
-                            </div>
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = document.querySelector(tab.dataset.target);
 
-                            <div class="tabs__item" data-content id="experience">
-                                <div class="tabs__data grid">
-                                    <p class="tabs__description">
-                                        <span>User experience Design</span> - UI/UX
-                                        <span>Delight the user </span>
-                                    </p>
+        tabContents.forEach(tc => {
+          tc.classList.remove('tabs__active');
+        });
+        tabs.forEach(t => {
+          t.classList.remove('tabs__active');
+        });
 
-                                    <p class="tabs__description">
-                                        <span>User experience Design</span> - UI/UX
-                                        <span>Delight the user </span>
-                                    </p>
-
-                                    <p class="tabs__description">
-                                        <span>User experience Design</span> - UI/UX
-                                        <span>Delight the user </span>
-                                    </p>
-                                </div>
-
-                                <div class="tabs__item" data-content id="education">
-                                    <div class="tabs__data grid">
-                                        <p class="tabs__description">
-                                            <span>User experience Design</span> - UI/UX
-                                            <span>Delight the user </span>
-                                        </p>
-
-                                        <p class="tabs__description">
-                                            <span>User experience Design</span> - UI/UX
-                                            <span>Delight the user </span>
-                                        </p>
-
-                                        <p class="tabs__description">
-                                            <span>User experience Design</span> - UI/UX
-                                            <span>Delight the user </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    </section>
+        tab.classList.add('tabs__active');
+        target.classList.add('tabs__active');
+      });
+    });
+  </script>
 </body>
-
 </html>
