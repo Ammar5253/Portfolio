@@ -3,8 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="index.css">
   <title>About Me</title>
   <style>
+
+:root{
+    --text-color:#f5f5f5;
+    --hover-color:#12f7ff;
+    --bg-color:#250821;
+    --secon-bg-color:#292e33;
+    --big-font:2.5rem;
+    --norma-font:2rem;
+    --neon-box-shadow:0 0 0.5rem #12f7ff;
+    --h2-font:3rem;
+    --font-neon-text-shadow:0 0 10px rgba(18,247,255,0.3),
+    0 0 20px rgba(18,247,255,0.3),
+    0 0 30px rgba(18,247,255,0.3),
+    0 0 40px rgba(18,247,255,0.3),
+    0 0 70px rgba(18,247,255,0.3),
+    0 0 100px rgba(18,247,255,0.3),
+    0 0 150px rgba(18,247,255,0.3);
+}
+
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -21,6 +42,7 @@
     .section__tittle {
       font-size: 2.5rem;
       margin-bottom: 1rem;
+      color: var();
     }
   
     .about {
@@ -154,6 +176,23 @@
   
 </head>
 <body>
+
+    <header>
+        <div class="logo">
+          <a href="index.html"><img src="Image/ass.jpg" class="website-logo" /><span>Ammar</span></a>
+        </div>
+    
+        <ul class="navlist">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#portfolio">Project</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div id="menu-icon" class="bx bx-menu"></div>
+      </header>
+
   <section class="about section" id="about">
     <div class="about__container container grid">
         <img src="Image/WhatsApp_Image_2025-01-28_at_11.46.35_451f6f09-removebg-preview.png" alt="About pic">
@@ -235,6 +274,11 @@
       </div>
     </div>
   </section>
+
+  <footer style="text-align: center; padding: 15px; background-color: #222; color: white;">
+    <p>Copyright &copy; 2024 by AmmarTech || All Right Reserved.</p>
+    <a href="index.html#home"><i class="bx bx-up-arrow-alt" style="color: white;"></i></a>
+  </footer>
 
   <script>
     const tabs = document.querySelectorAll('[data-target]');
