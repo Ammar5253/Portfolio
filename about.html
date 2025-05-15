@@ -137,41 +137,26 @@
   
     /* 🔽 Responsive Styles 🔽 */
     @media screen and (max-width: 1024px) {
-      .section__tittle {
-        font-size: 2rem;
-      }
-  
-      .about__container {
-        flex-direction: column;
-        text-align: center;
-      }
-  
-      .tabs__btns {
-        justify-content: center;
-      }
-  
-      .tabs__btn {
-        font-size: 0.95rem;
-      }
-    }
-  
-    @media screen and (max-width: 600px) {
-      .about {
-        padding: 1.5rem 1rem;
-      }
-  
-      .section__tittle {
-        font-size: 1.8rem;
-      }
-  
-      .tabs__btn {
-        font-size: 0.85rem;
-      }
-  
-      .tabs__description span:last-child {
-        font-size: 0.9rem;
-      }
-    }
+  .about__container {
+    flex-direction: column;
+    text-align: center; /* Center text */
+  }
+
+  .about__content {
+    width: 100%;       /* Full width */
+    margin: 0 auto;    /* Center horizontally */
+  }
+
+  .about__description {
+    text-align: center; /* Center paragraph text */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about__content {
+    padding: 0 1rem;   /* Add some padding on very small devices */
+  }
+}
   </style>
   
 </head>
