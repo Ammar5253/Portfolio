@@ -769,6 +769,28 @@ footer a i{
     }
 }
 
+@media (max-width: 768px) {
+    .port-content {
+      opacity: 1 !important;
+      position: relative;
+      height: auto;
+      background: #292e33;
+      padding: 1rem;
+    }
+  
+    .port-box {
+      height: auto;
+    }
+  
+    .port-image img {
+      transform: none !important;
+    }
+  
+    .port-box:hover .port-image img {
+      transform: none;
+    }
+  }
+  
 
  /* Modal background */
  .modal {

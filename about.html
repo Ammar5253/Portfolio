@@ -6,51 +6,50 @@
   <link rel="stylesheet" href="index.css">
   <title>About Me</title>
   <style>
-
-:root{
-    --text-color:#f5f5f5;
-    --hover-color:#12f7ff;
-    --bg-color:#250821;
-    --secon-bg-color:#292e33;
-    --big-font:2.5rem;
-    --norma-font:2rem;
-    --neon-box-shadow:0 0 0.5rem #12f7ff;
-    --h2-font:3rem;
-    --font-neon-text-shadow:0 0 10px rgba(18,247,255,0.3),
-    0 0 20px rgba(18,247,255,0.3),
-    0 0 30px rgba(18,247,255,0.3),
-    0 0 40px rgba(18,247,255,0.3),
-    0 0 70px rgba(18,247,255,0.3),
-    0 0 100px rgba(18,247,255,0.3),
-    0 0 150px rgba(18,247,255,0.3);
-}
-
+    :root {
+      --text-color:#f5f5f5;
+      --hover-color:#12f7ff;
+      --bg-color:#250821;
+      --secon-bg-color:#292e33;
+      --big-font:2.5rem;
+      --norma-font:2rem;
+      --neon-box-shadow:0 0 0.5rem #12f7ff;
+      --h2-font:3rem;
+      --font-neon-text-shadow:0 0 10px rgba(18,247,255,0.3),
+      0 0 20px rgba(18,247,255,0.3),
+      0 0 30px rgba(18,247,255,0.3),
+      0 0 40px rgba(18,247,255,0.3),
+      0 0 70px rgba(18,247,255,0.3),
+      0 0 100px rgba(18,247,255,0.3),
+      0 0 150px rgba(18,247,255,0.3);
+    }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-  
+
     body {
       background-color: hsl(0, 0%, 6%);
       color: white;
       font-family: Arial, sans-serif;
       padding: 1rem;
     }
-  
+
     .section__tittle {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: var();
+      color: var(--hover-color);
+      text-align: center;
     }
-  
+
     .about {
       background-color: hsl(0, 0%, 10%);
       border-radius: 8px;
       padding: 2rem;
     }
-  
+
     .about__container {
       display: flex;
       flex-direction: row;
@@ -59,7 +58,7 @@
       align-items: center;
       justify-content: center;
     }
-  
+
     .about__img {
       flex: 1 1 300px;
       max-width: 100%;
@@ -67,24 +66,25 @@
       border-radius: 0.5rem;
       object-fit: cover;
     }
-  
+
     .about__content {
       flex: 2 1 400px;
       width: 100%;
     }
-  
+
     .about__description {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       line-height: 1.6;
     }
-  
+
     .tabs__btns {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       margin-bottom: 1rem;
+      justify-content: center;
     }
-  
+
     .tabs__btn {
       cursor: pointer;
       color: hsl(0, 0%, 100%);
@@ -92,7 +92,7 @@
       padding-bottom: 0.3rem;
       font-size: 1rem;
     }
-  
+
     .tabs__btn::after {
       content: '';
       position: absolute;
@@ -103,105 +103,111 @@
       background-color: hsl(0, 0%, 77%);
       transition: all 0.3s ease;
     }
-  
+
     .tabs__btn.tabs__active {
       color: hsl(350, 98%, 64%);
     }
-  
+
     .tabs__btn.tabs__active::after {
       background-color: hsl(350, 98%, 64%);
       width: 100%;
     }
-  
+
     .tabs__item[data-content] {
       display: none;
     }
-  
+
     .tabs__item.tabs__active {
       display: block;
     }
-  
+
     .tabs__data {
       display: grid;
       gap: 1rem;
     }
-  
+
     .tabs__description span:first-child {
       font-weight: bold;
     }
-  
+
     .tabs__description span:last-child {
       display: block;
       color: hsl(0, 0%, 80%);
     }
-  
+
     /* 🔽 Responsive Styles 🔽 */
-   
+
     @media screen and (max-width: 1024px) {
-  .about__container {
-    flex-direction: column;
-    align-items: center;  /* center child items horizontally */
-    text-align: center;   /* center text inside */
-  }
+      .about__container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-  .about__img {
-    max-width: 300px; /* limit image width */
-    width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-  }
+      .about__img {
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+      }
 
-  .about__content {
-    width: 100%;        /* full width container */
-    max-width: 600px;   /* limit max width for readability */
-  }
+      .about__content {
+        width: 100%;
+        max-width: 600px;
+      }
 
-  .about__description {
-    margin: 0 auto;
-    text-align: center;  /* center the paragraph text */
-    font-size: 1rem;     /* optional: slightly adjust font size */
-  }
-}
+      .about__description {
+        margin: 0 auto 2rem auto;
+        text-align: center;
+        font-size: 1rem;
+      }
+    }
 
-@media screen and (max-width: 600px) {
-  .about__content {
-    padding: 0 1rem;
-  }
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 0.5rem;
+      }
 
-  .about__description {
-    font-size: 0.95rem;
-  }
-}
+      .about__container,
+      .about__content,
+      .about__description {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
 
+      .about__description {
+        font-size: 0.95rem;
+        text-align: justify;
+      }
+    }
   </style>
-  
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-          <a href="index.html"><img src="Image/ass.jpg" class="website-logo" /><span>Ammar</span></a>
-        </div>
-    
-        <ul class="navlist">
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#skills">Skills</a></li>
-          <li><a href="index.html#portfolio">Project</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-        <div id="menu-icon" class="bx bx-menu"></div>
-      </header>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="Image/ass.jpg" class="website-logo" /><span>Ammar</span></a>
+    </div>
+
+    <ul class="navlist">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#portfolio">Project</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div id="menu-icon" class="bx bx-menu"></div>
+  </header>
 
   <section class="about section" id="about">
     <div class="about__container container grid">
-        <img src="Image/WhatsApp_Image_2025-01-28_at_11.46.35_451f6f09-removebg-preview.png" alt="About pic">
+      <img src="Image/WhatsApp_Image_2025-01-28_at_11.46.35_451f6f09-removebg-preview.png" alt="About pic" class="about__img">
 
       <div class="about__content">
         <h2 class="section__tittle">About Me</h2>
         <p class="about__description">
-            I am a passionate software developer with a strong foundation in web technologies and a keen interest in building scalable, efficient, and user-friendly applications. My expertise lies in front-end development using tools like React, HTML, CSS, and JavaScript, with growing experience in backend integration and API handling. I enjoy solving real-world problems through clean code, intuitive design, and continuous learning. Whether working independently or as part of a collaborative team, I strive to deliver high-quality solutions that meet both user needs and business goals.
+          I am a passionate software developer with a strong foundation in web technologies and a keen interest in building scalable, efficient, and user-friendly applications. My expertise lies in front-end development using tools like React, HTML, CSS, and JavaScript, with growing experience in backend integration and API handling. I enjoy solving real-world problems through clean code, intuitive design, and continuous learning. Whether working independently or as part of a collaborative team, I strive to deliver high-quality solutions that meet both user needs and business goals.
         </p>
 
         <div class="tabs__btns">
@@ -214,7 +220,6 @@
         <div class="tabs__content">
           <div class="tabs__item tabs__active" data-content id="skills">
             <div class="tabs__data grid">
-            
               <p class="tabs__description">
                 <span>Web Development</span> - Frontend
                 <span>React, HTML, CSS</span>
@@ -243,33 +248,31 @@
             </div>
           </div>
 
-          
           <div class="tabs__item" data-content id="experience">
-              <div class="tabs__data grid">
-                  <p class="tabs__description">
-                      <span>Software Developer</span> - Hatim Technologies
-                      <span>Jan 2024 - Present</span>
-                    </p>
-                    <p class="tabs__description">
-                        <span>Salesforce Trainee Developer</span> - Dohrinii Technologies
-                        <span>Feb 2023 - Dec 2023</span>
-                    </p>
-                </div>
+            <div class="tabs__data grid">
+              <p class="tabs__description">
+                <span>Software Developer</span> - Hatim Technologies
+                <span>Jan 2024 - Present</span>
+              </p>
+              <p class="tabs__description">
+                <span>Salesforce Trainee Developer</span> - Dohrinii Technologies
+                <span>Feb 2023 - Dec 2023</span>
+              </p>
             </div>
+          </div>
 
-            <div class="tabs__item" data-content id="award">
-              <div class="tabs__data grid">
-                <p class="tabs__description">
-                  <span>.Net Full Stack Development</span> - MyTech Focus 
-                  <span>2024</span>
-                </p>
-                <p class="tabs__description">
-                  <span>MERN Stack Development</span> - Udemy
-                  <span>2023</span>
-                </p>
-              </div>
+          <div class="tabs__item" data-content id="award">
+            <div class="tabs__data grid">
+              <p class="tabs__description">
+                <span>.Net Full Stack Development</span> - MyTech Focus 
+                <span>2024</span>
+              </p>
+              <p class="tabs__description">
+                <span>MERN Stack Development</span> - Udemy
+                <span>2023</span>
+              </p>
             </div>
-
+          </div>
         </div>
 
       </div>
@@ -289,12 +292,8 @@
       tab.addEventListener('click', () => {
         const target = document.querySelector(tab.dataset.target);
 
-        tabContents.forEach(tc => {
-          tc.classList.remove('tabs__active');
-        });
-        tabs.forEach(t => {
-          t.classList.remove('tabs__active');
-        });
+        tabContents.forEach(tc => tc.classList.remove('tabs__active'));
+        tabs.forEach(t => t.classList.remove('tabs__active'));
 
         tab.classList.add('tabs__active');
         target.classList.add('tabs__active');
