@@ -770,20 +770,31 @@ footer a i{
 }
 
 @media (max-width: 768px) {
-    .port-content {
-      opacity: 1 !important;
-      position: relative;
+    .port-box {
       height: auto;
-      background: #292e33;
-      padding: 1rem;
+      flex-direction: column;
     }
   
-    .port-box {
+    .port-image {
       height: auto;
     }
   
     .port-image img {
-      transform: none !important;
+      height: auto;
+      object-fit: cover;
+    }
+  
+    .port-content {
+      position: static;
+      opacity: 1 !important;
+      height: auto;
+      background: #292e33;
+      padding: 1rem;
+      transition: none;
+    }
+  
+    .port-box:hover .port-content {
+      opacity: 1;
     }
   
     .port-box:hover .port-image img {
